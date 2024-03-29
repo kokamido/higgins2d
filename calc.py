@@ -126,11 +126,11 @@ if __name__ == "__main__":
         du_star = (q + 1) / p * (2 * q + 1 + 2 * (q * (q + 1)) ** 0.5)
         du_min = round((du_star + 1) * dv, 4)
         leng = ceil(-log10(du_min))
-        for du in [0.0003 + 0.0005*i for i in range(21,30)]:
-            for _ in range(4):
+        for du in [0.0003 + 0.000025*i for i in range(0,51)]:
+            for _ in range(50):
                 exps.append(
                     Exp(
-                        save_every_n_steps=100000,
+                        save_every_n_steps=1000000,
                         init_U=np.random.rand(size, size) * 0.1 + 1,
                         init_V=np.random.rand(size, size) * 0.1 + 1,
                         du=du,
